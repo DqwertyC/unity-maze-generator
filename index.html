@@ -80,10 +80,17 @@
       // performance, uncomment the following line:
       // config.devicePixelRatio = 1;
 
-      canvas.style.width = window.innerWidth + 'px';
-      canvas.style.height = window.innerHeight + 'px';
+      canvas.style.width = 0.9 * window.innerWidth + 'px';
+      canvas.style.height = 0.9 * window.innerHeight + 'px';
       canvas.style.background = "url('" + buildUrl + "/WebGL.jpg') center / cover";
       loadingBar.style.display = "block";
+      
+      function resizeCanvas() {
+        canvas.style.width = 0.9 * window.innerWidth + 'px';
+        canvas.style.height = 0.9 * window.innerHeight + 'px';
+      }
+      
+      window.onresize = resizeCanvas;
 
       var script = document.createElement("script");
       script.src = loaderUrl;
